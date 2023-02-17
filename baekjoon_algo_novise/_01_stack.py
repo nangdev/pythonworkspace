@@ -1,9 +1,10 @@
-n = int(input())
+import sys
+n = int(sys.stdin.readline())
 li = []
 while (n > 0):
-    direct = list(map(str, input().split()))
+    direct = sys.stdin.readline().split()
 
-    if len(direct) == 2:  # push
+    if direct[0] == "push":  # push
         li.append(int(direct[1]))
         n -= 1
         continue
@@ -22,8 +23,8 @@ while (n > 0):
         n -= 1
         continue
 
-    elif direct[0] == "show":
-        print(li)
+    # elif direct[0] == "show":
+    #     print(li)
 
     elif direct[0] == "empty":  # empty
         if len(li) == 0:
