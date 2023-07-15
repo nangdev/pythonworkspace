@@ -12,11 +12,13 @@ while True:
     count = 0
     # 1번째 조건
     for _ in range(4):
+        if c == 0:
+            pre_dir = 1
         pre_gps = gps
         pre_dir -= 1
         next_x = pre_gps[0] + direc[pre_dir][0]
         next_y = pre_gps[1] + direc[pre_dir][1]
-        if 0 <= next_x < ran[0] and 0 <= next_y < ran[1] and maping[next_x][next_y] == 0:
+        if maping[next_x][next_y] == 0:
             c = pre_dir
             gps = [next_x, next_y]
             result += 1

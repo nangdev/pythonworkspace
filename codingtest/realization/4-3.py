@@ -1,4 +1,6 @@
+import time
 ans = list(input())
+start = time.time()
 result = 8
 if int(ans[1])+2 > 8:
     result -= 2
@@ -28,4 +30,6 @@ else:
         result -= 1
     elif int(ans[1])-1 < 1:
         result -= 1
+end = time.time()
 print(result)
+print(f"{end-start: 5f} sec")
