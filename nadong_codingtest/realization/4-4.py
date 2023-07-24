@@ -1,42 +1,51 @@
-ran = list(map(int, input().split()))
-a, b, c = map(int, input().split())
-gps = [a, b]
-maping = []
-result = 0
-direc = [[-1, 0], [0, 1], [1, 0], [0, -1]]  # 북동남서
-for i in range(ran[0]):
-    maping.append(list(map(int, input().split())))
+n, m = map(int, input().split())
 
+# 방문한 위치를 저장하기 위한 맵
+d = [[0]*m for _ in range(n)]
+x, y, direc = map(int, input().split())
+d[x][y] = 1  # 현재 좌표 방문처리
+
+mapping = []
+for i in range(n):
+    mapping.append(list(map(int, input().split())))
+
+dx = [-1, 0, 1, 0]
+dy = [0, 1, 0, -1]
+
+
+def turn_left():
+    global direc
+    direc -= 1
+    if direc == -1:
+        direc = 3
+
+
+count = 1
+turn_time = 0
 while True:
-    pre_dir = c
-    count = 0
-    # 1번째 조건
-    for _ in range(4):
-        if c == 0:
-            pre_dir = 1
-        pre_gps = gps
-        pre_dir -= 1
-        next_x = pre_gps[0] + direc[pre_dir][0]
-        next_y = pre_gps[1] + direc[pre_dir][1]
-        if maping[next_x][next_y] == 0:
-            c = pre_dir
-            gps = [next_x, next_y]
-            result += 1
-            count += 1
-            break
-    if count == 1:
+    turn_left()
+    nx = x + dx[direc]
+    ny = y + dy[direc]
+    # 안가본대라면
+    if d[nx][ny] == 0 and mapping[nx][ny] == 0:
+        d[nx][ny] = 1
+        x = nx
+        y = ny
+        count += 1
+        turn_time = 0
         continue
-
-    # 2번째 조건
-    if c == 0:
-        b += 1
-    elif c == 1:
-        a -= 1
-    elif c == 2:
-        b -= 1
     else:
-        a += 1
-
-    if a == ran[0] or a < 0 or b == ran[1] or b < 0:
-        break
-print(result)
+        turn_time += 1
+    # 갈 곳이 없다면
+    if turn_time == 4:
+        nx = x - dx[direc]
+        ny = y - dy[direc]
+        # 갔던곳이 있다
+        if mapping[nx][ny] == 0:
+            x = nx
+            y = ny
+        # 바다다
+        else:
+            break
+        turn_time = 0
+print(count)
