@@ -1,29 +1,25 @@
-n = int(input())
-for i in range(n):
-    stu_ran, stu_num = map(int, input().split())
-    score_lis = []
-    for j in range(stu_ran):
-        score_lis.append(list(map(int, input().split())))
-    grade = (score_lis[stu_num-1][0] / 100 * 35) + \
-        (score_lis[stu_num-1][1] / 100 * 45) + \
-        (score_lis[stu_num-1][2] / 100 * 20)
-    if grade > 90:
-        print(f"#{i+1} A+")
-    elif grade <= 90 and grade > 80:
-        print(f"#{i+1} A0")
-    elif grade <= 80 and grade > 70:
-        print(f"#{i+1} A-")
-    elif grade <= 70 and grade > 60:
-        print(f"#{i+1} B+")
-    elif grade <= 60 and grade > 50:
-        print(f"#{i+1} B0")
-    elif grade <= 50 and grade > 40:
-        print(f"#{i+1} B-")
-    elif grade <= 40 and grade > 30:
-        print(f"#{i+1} C+")
-    elif grade <= 30 and grade > 20:
-        print(f"#{i+1} C0")
-    elif grade <= 20 and grade > 10:
-        print(f"#{i+1} C-")
-    else:
-        print(f"#{i+1} D0")
+# n = int(input())
+# for i in range(n):
+#     stu_ran, stu_num = map(int, input().split())
+#     score_lis = {}
+#     for j in range(stu_ran):
+#         score = list(map(int, input().split()))
+#         score_lis[j+1] = round((score[0]*35/100) +
+#                                (score[1]*45/100) + (score[2]*20/100), 1)
+#     score_lis = dict(
+#         sorted(score_lis.items(), key=lambda x: x[1], reverse=True))
+#     print(score_lis)
+
+for t in range(int(input())):
+    n, k = map(int, input().split())
+    score = ['A+', 'A0', 'A-', 'B+', 'B0', 'B-', 'C+', 'C0', 'C-', 'D0']
+    arr = []
+    for _ in range(n):
+        a, b, c = map(int, input().split())
+        value = (a*0.35) + (b*0.45) + (c*0.20)
+        arr.append(value)
+    k_score = arr[k-1]
+    arr.sort(reverse=True)
+    x = n // 10
+    result = arr.index(k_score)//x
+    print(f'#{t+1} {score[result]}')
