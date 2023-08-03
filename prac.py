@@ -1,6 +1,3 @@
-for j in range(3):
-    for i in range(1, 11):
-        if i % 2 == 0:
-            break
-        print(i)
-    print(j)
+n = 3
+snail = [[0]*n for i in range(n)]
+print(snail)
