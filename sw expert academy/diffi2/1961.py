@@ -1,3 +1,4 @@
+import copy
 t = int(input())
 for i in range(t):
     n = int(input())
@@ -12,8 +13,7 @@ for i in range(t):
                 rotae[k][n-j-1] = matrix[j][k]
         for y in range(n):
             result[y].append("".join(rotae[y]))
-        matrix = rotae.copy()
-        print(rotae)
+        matrix = copy.deepcopy(rotae)
     print(f"#{i+1}")
     for rmaks in result:
         print(*rmaks)
