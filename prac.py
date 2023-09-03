@@ -1,2 +1,2 @@
-a = 112
-print(str(a))
+import math
+print(int(math.sqrt(50)))
