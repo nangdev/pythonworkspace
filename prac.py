@@ -1,2 +1,3 @@
 import math
-print(int(math.sqrt(50)))
+pa = "bab"
+print(pa[0:0])
