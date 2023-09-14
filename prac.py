@@ -1,2 +1,4 @@
 import math
-lis = 78
+lis = [7, 7, 7, 7]
+asdf = ''
+print(min(lis))
