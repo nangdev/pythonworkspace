@@ -1,4 +1,3 @@
 import math
-lis = [7, 7, 7, 7]
-asdf = ''
-print(min(lis))
+lis = "12345678910"
+print(lis[3:8])
