@@ -1,3 +1,3 @@
 import math
-lis = "12345678910"
-print(lis[3:8])
+lis = [1, 4, 0, 5, 4]
+print(sum(lis[2-2:2+2+1]))
