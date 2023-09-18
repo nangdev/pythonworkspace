@@ -16,7 +16,7 @@ for i in range(1, t+1):
     for k in range(m-1, 0, -1):
         if pro[passline][k] == '1':
             for p in range(8):
-                code.append(dic[pro[passline][(k-7)-(p*7)+1:k-(p*7)+1]])
+                code.append(dic[pro[passline][(k-6)-(p*7):(k+1)-(p*7)]])
             break
 
     result = 0

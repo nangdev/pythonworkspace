@@ -1,3 +1,5 @@
 import math
-lis = [1, 4, 0, 5, 4]
-print(sum(lis[2-2:2+2+1]))
+lis = "abc"
+lis2 = lis[::-1]
+
+print(lis2)
