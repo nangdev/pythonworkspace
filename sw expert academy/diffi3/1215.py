@@ -6,9 +6,12 @@ for l in range(1, 11):
     result = 0
 
     # 가로
-    for i in pail:
+    for i in range(8):
         for j in range(9-n):
-            if i[j:j+n] == i[j+n:j:-1]:
+            ch = ""
+            for k in range(n):
+                ch += pail[i][j+k]
+            if ch == ch[::-1]:
                 result += 1
 
     # 세로
