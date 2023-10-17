@@ -1,3 +1,3 @@
 import math
-v = [0]
-print(v)
+arr = [1, 2, 3]
+print(arr.index(2))

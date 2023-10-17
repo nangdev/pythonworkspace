@@ -4,8 +4,8 @@ def dfs(n, sm):
         return
 
     if n == N-1:
-        sm += distric[v.index(0)][0]
-        ans = min(ans, sm)
+        # 아 이렇게 하면 어차피 v가 다 0이라 처음게 나오는구나
+        ans = min(ans, sm+distric[N][1])
         return
 
     for j in range(1, N):
@@ -21,7 +21,7 @@ for i in range(1, t+1):
     distric = []
     for _ in range(N):
         distric.append(list(map(int, input().split())))
-    v = [0]*N
+    v = [1]+[0]*N
     ans = 100*N**2
     dfs(0, 0)
-    print(f"#{ans} {i}")
+    print(f"#{i} {ans}")
