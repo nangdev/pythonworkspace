@@ -1,3 +1,3 @@
 import math
-arr = [1, 2, 3]
-print(arr.index(2))
+arr = list(map(int, input()))
+print(arr)
