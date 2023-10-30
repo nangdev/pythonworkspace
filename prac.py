@@ -1,3 +1,3 @@
 import math
-arr = list(map(int, input()))
+arr = list(input().split())
 print(arr)
